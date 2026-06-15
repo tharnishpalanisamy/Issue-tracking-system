@@ -78,10 +78,10 @@
     <div class="container mt-5">
         <div class="row g-3">
             <div class="col-6 col-lg-3">
-                <div class="card" style="background-color:#4F46E5 ;" >
+                <div class="card shadow-sm" style="background-color:#4F46E5 ;" >
                     <div class="card-body">
                         <h3 class="fw-bold ticketsCount  text-light">0</h3>
-                        <p class="card-text fs-5 fw-medium text-light">Tickets Raised</p>
+                        <p class="card-text fs-5 fw-medium text-light">Issues Raised</p>
                     </div>
                     <div class="card-footer student-footer ">
                         <a href="#" class="text-decoration-none text-light" data-bs-toggle="modal" data-bs-target="#riseTicketModal" >Raise Ticket</a>
@@ -92,10 +92,10 @@
 
             <!---->
             <div class="col-6 col-lg-3">
-                <div class="card" style="background-color:#10B981 ;" >
+                <div class="card shadow-sm" style="background-color:#10B981 ;" >
                     <div class="card-body">
                         <h3 class="fw-bold resolvedCount  text-light">0</h3>
-                        <p class="card-text fs-5 fw-medium text-light">Tickets resolved</p>
+                        <p class="card-text fs-5 fw-medium text-light">Issues resolved</p>
                     </div>
                     <div class="card-footer student-footer ">
                         <a href="#" class="text-decoration-none text-light">View More</a>
@@ -103,32 +103,34 @@
                 </div>
             </div>
 
-
             <div class="col-6 col-lg-3">
-                <div class="card" style="background-color:#F59E0B ;"  >
-                    <div class="card-body">
-                        <h3 class="fw-bold openCount  text-light">0</h3>
-                        <p class="card-text fs-5 fw-medium text-light">Tickets Open</p>
-                    </div>
-                    <div class="card-footer student-footer ">
-                        <a href="#" class="text-decoration-none text-light">View More</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col-6 col-lg-3">
-                <div class="card" style="background-color:#0EA5E9 ;"  >
+                <div class="card shadow-sm" style="background-color:#0EA5E9 ;"  >
                     <div class="card-body">
                         <h3 class="fw-bold pendingCount  text-light">0</h3>
-                        <p class="card-text fs-5 fw-medium text-light">Tickets in Progress</p>
+                        <p class="card-text fs-5 fw-medium text-light">Issues in Progress</p>
                     </div>
                     <div class="card-footer student-footer ">
                         <a href="#" class="text-decoration-none text-light">View More</a>
                     </div>
                 </div>
             </div> 
+
+
+            <div class="col-6 col-lg-3">
+                <div class="card shadow-sm" style="background-color:#dc951b ;"  >
+                    <div class="card-body">
+                        <h3 class="fw-bold openCount  text-light">0</h3>
+                        <p class="card-text fs-5 fw-medium text-light">Issues Open</p>
+                    </div>
+                    <div class="card-footer student-footer ">
+                        <a href="#" class="text-decoration-none text-light">View More</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
 
             
 
@@ -190,12 +192,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="profile"></div>
+                <div class="displayProfile"></div>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
+                <button type="button" class="btn btn-primary" >Edit</button>
+            </div> -->
             </div>
         </div>
     </div>

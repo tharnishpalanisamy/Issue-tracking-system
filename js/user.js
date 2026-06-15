@@ -1,7 +1,29 @@
 const API = 'http://localhost:3000/issues'
 
-let user = localStorage.getItem('user')
+let user = JSON.parse(localStorage.getItem('user'))
 console.log(user.email);
+
+
+//user profile displaying
+let profile = document.querySelector('.displayProfile') 
+profile.classList.add( 'fw-medium' , 'm-auto' , 'text-primary')
+profile.innerHTML = `
+<div class="d-flex align-items-center gap-3">
+
+    <img src="../assets/profileimg.png"
+         alt="Profile"
+         class="rounded-circle border-2 flex-shrink-0"
+         style="width:100px;height:100px;object-fit:cover;">
+
+    <div>
+        <h5 class="mb-2">${user.name} </h5>
+        <p class="mb-1"><strong>Email:</strong> ${user.email}</p>
+        <p class="mb-1"><strong>Department:</strong> ${user.department}</p>
+        <p class="mb-0"><strong>Designation:</strong> ${user.designation}</p>
+    </div>
+
+</div>
+`;
 
 //raise ticket 
 
