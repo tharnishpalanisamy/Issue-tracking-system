@@ -7,8 +7,60 @@
       "department": "Marketing",
       "designation": "5tythth",
       "id": "6vHoFC4c1jw"
+    },
+    {
+      "email": "midhunv@gmail.com",
+      "name": "Midhun V",
+      "password": "Midhun@123",
+      "department": "Marketing",
+      "designation": "Unemployed",
+      "id": "DpdX6awnrTg"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "title": "first issue",
+      "details": "change dashboard",
+      "description": "add some good styling",
+      "priority": "medium",
+      "createdDate": "2026-06-15T12:39:00.989Z",
+      "status": "Open",
+      "remark": "",
+      "id": "R-wk6JxKSkA"
+    },
+    {
+      "title": "2",
+      "details": "2",
+      "description": "2",
+      "priority": "medium",
+      "issueId": 1781527191694,
+      "createdDate": "2026-06-15T12:39:51.694Z",
+      "status": "Open",
+      "remark": "",
+      "id": "WRLWaUBDXs8"
+    },
+    {
+      "title": "2",
+      "details": "2",
+      "description": "2",
+      "priority": "medium",
+      "issueId": 1781527287030,
+      "createdDate": "2026-06-15T12:41:27.030Z",
+      "status": "Open",
+      "remark": "",
+      "id": "sUAwWsL2cS0"
+    },
+    {
+      "title": "3",
+      "details": "3",
+      "description": "3",
+      "priority": "medium",
+      "issueId": 1781527338605,
+      "createdDate": "2026-06-15T12:42:18.605Z",
+      "status": "Open",
+      "remark": "",
+      "id": "expX6KtWYt8"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
