@@ -1,7 +1,7 @@
 const API = 'http://localhost:3000/issues'
 
 let user = JSON.parse(localStorage.getItem('user'))
-console.log(user.email);
+console.log(user.id);
 
 
 //user profile displaying
@@ -24,6 +24,7 @@ profile.innerHTML = `
 
 </div>
 `;
+
 
 //raise ticket 
 
@@ -49,7 +50,8 @@ raiseTicket.addEventListener('click' , async function(){
         issueId:Date.now() , 
         createdDate : new Date().toISOString() , 
         status:'Open' , 
-        remark : ''
+        remark : '' , 
+        userId : user.id 
     }
 
 
