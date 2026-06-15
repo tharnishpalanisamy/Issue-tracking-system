@@ -3,6 +3,10 @@ const API = 'http://localhost:3000/issues'
 let user = JSON.parse(localStorage.getItem('user'))
 console.log(user.id);
 
+//dynamic name 
+
+let name = document.querySelector('.welcome-name') 
+name.innerHTML = `Welcome ${user.name} 👋 ` 
 
 //user profile displaying
 let profile = document.querySelector('.displayProfile') 
@@ -26,6 +30,45 @@ profile.innerHTML = `
 `;
 
 
+
+//load the dashboard
+
+async function fetchStatistic(){
+    let fetchedData = await fetch(`${API}?userId=${user.id}`)
+    let issues = await fetchedData.json() 
+
+    let total = 0 ; 
+    let closed = 0 ; 
+    let progress = 0 
+    let open = 0 
+
+    issues.forEach(issue=>{
+        total ++ 
+        if(issue.status =='Open') {
+            open++
+        }
+        else if(issue.status == 'Closed') {
+            closed ++
+        }
+        else if (issue.status == 'In Progress') {
+            progress ++
+        }
+    })
+
+    let issuesCount = document.querySelector(".issuesCount") 
+    issuesCount.innerHTML = total  
+
+    let resolvedCount = document.querySelector('.resolvedCount') 
+    resolvedCount.innerHTML = closed 
+
+    let pendingCount = document.querySelector('.pendingCount') 
+    pendingCount.innerHTML = progress
+
+    let openCount = document.querySelector('.openCount') 
+    openCount.innerHTML = open
+}
+
+fetchStatistic()
 //raise ticket 
 
 let raiseTicket = document.getElementById('raiseTicket') 

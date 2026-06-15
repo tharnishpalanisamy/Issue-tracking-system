@@ -96,7 +96,127 @@
       "remark": "",
       "userId": "6vHoFC4c1jw",
       "id": "vx5NZWiMxOs"
-    }
+    },
+     {
+    "title": "Dashboard not loading",
+    "details": "User dashboard remains blank after login",
+    "description": "The dashboard page shows a white screen intermittently.",
+    "priority": "High",
+    "issueId": 1781534135707,
+    "createdDate": "2026-06-15T09:15:21.000Z",
+    "status": "Open",
+    "remark": "",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS001"
+  },
+  {
+    "title": "Profile image issue",
+    "details": "Profile image not updating",
+    "description": "Uploaded profile image still shows old avatar.",
+    "priority": "Medium",
+    "issueId": 1781534135708,
+    "createdDate": "2026-06-15T09:45:10.000Z",
+    "status": "In Progress",
+    "remark": "Investigating upload service",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS002"
+  },
+  {
+    "title": "Password reset failed",
+    "details": "Reset email not received",
+    "description": "Users are unable to receive password reset emails.",
+    "priority": "High",
+    "issueId": 1781534135709,
+    "createdDate": "2026-06-15T10:05:33.000Z",
+    "status": "Open",
+    "remark": "",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS003"
+  },
+  {
+    "title": "Ticket filter bug",
+    "details": "Priority filter not working",
+    "description": "Selecting High priority still shows all tickets.",
+    "priority": "Medium",
+    "issueId": 1781534135710,
+    "createdDate": "2026-06-15T10:25:48.000Z",
+    "status": "Closed",
+    "remark": "Fixed and deployed",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS004"
+  },
+  {
+    "title": "Dark mode request",
+    "details": "Need dark theme support",
+    "description": "Users prefer a dark mode option in settings.",
+    "priority": "low",
+    "issueId": 1781534135711,
+    "createdDate": "2026-06-15T11:10:15.000Z",
+    "status": "Open",
+    "remark": "",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS005"
+  },
+  {
+    "title": "Slow ticket loading",
+    "details": "Tickets take too long to display",
+    "description": "Loading time exceeds 5 seconds during peak usage.",
+    "priority": "High",
+    "issueId": 1781534135712,
+    "createdDate": "2026-06-15T11:45:09.000Z",
+    "status": "In Progress",
+    "remark": "Optimizing API calls",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS006"
+  },
+  {
+    "title": "Search feature enhancement",
+    "details": "Need search by issue ID",
+    "description": "Users want to quickly locate tickets by ID.",
+    "priority": "low",
+    "issueId": 1781534135713,
+    "createdDate": "2026-06-15T12:20:44.000Z",
+    "status": "Closed",
+    "remark": "Implemented",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS007"
+  },
+  {
+    "title": "Notification bug",
+    "details": "Status update notification missing",
+    "description": "Users are not notified when ticket status changes.",
+    "priority": "Medium",
+    "issueId": 1781534135714,
+    "createdDate": "2026-06-15T12:55:31.000Z",
+    "status": "Open",
+    "remark": "",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS008"
+  },
+  {
+    "title": "Mobile responsiveness",
+    "details": "Cards overlap on mobile",
+    "description": "Dashboard cards are not aligned properly on small screens.",
+    "priority": "Medium",
+    "issueId": 1781534135715,
+    "createdDate": "2026-06-15T13:15:18.000Z",
+    "status": "In Progress",
+    "remark": "Working on Bootstrap layout",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS009"
+  },
+  {
+    "title": "Export tickets",
+    "details": "Need CSV export option",
+    "description": "Users want to download their tickets as CSV files.",
+    "priority": "low",
+    "issueId": 1781534135716,
+    "createdDate": "2026-06-15T13:40:52.000Z",
+    "status": "Closed",
+    "remark": "Feature released",
+    "userId": "6vHoFC4c1jw",
+    "id": "ISS010"
+  }
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
