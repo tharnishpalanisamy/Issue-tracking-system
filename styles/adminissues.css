@@ -1,0 +1,68 @@
+
+.blue{
+    color: #0EA5E9 !important;
+}
+.bg-blue{
+    background-color: #0EA5E9 !important;
+}
+
+.bg{
+    background-color: #1e293b !important;
+}
+
+.bg-text{
+    color: #1e293b !important;
+}
+
+.div a {
+    text-decoration: none;
+    font-size: 18px; 
+    color: white;
+}
+
+.active{
+    color: #0EA5E9 !important;
+}
+
+.div a:hover{
+    color: #0EA5E9 !important; 
+    transition: 0.7s;
+}
+
+.body-bg{
+    color: #0F172A  !important;
+}
+
+.Low{
+    background: #22C55E !important; 
+    color: white;
+}
+
+.Medium{
+    background: #F59E0B !important;
+    color: white;
+}
+
+.High{
+    background: #EF4444 !important;
+    color: white;
+}
+
+.Open{
+    background: #22C55E  !important;
+}
+
+.In{
+    background: #0EA5E9 !important;
+}
+
+.Closed{
+    background: #64748B !important;
+}
+i{
+    cursor: pointer;
+}
+
+.required{
+    color: red;
+}

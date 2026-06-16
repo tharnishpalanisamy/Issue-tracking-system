@@ -1,0 +1,66 @@
+
+.blue{
+    color: #0EA5E9 !important;
+}
+.bg-blue{
+    background-color: #0EA5E9 !important;
+}
+
+.bg{
+    background-color: #1e293b !important;
+}
+
+.bg-text{
+    color: #1e293b !important;
+}
+
+.div a {
+    text-decoration: none;
+    font-size: 18px; 
+    color: white;
+}
+
+.active{
+    color: #0EA5E9 !important;
+}
+
+.div a:hover{
+    color: #0EA5E9 !important; 
+    transition: 0.7s;
+}
+
+.body-bg{
+    color: #0F172A  !important;
+}
+
+/* .chart-container {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 30px;
+    width: 800px;
+}
+
+.chart-container h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.chart-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 15px;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.chart-card h4 {
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#issueChart {
+    max-height: 200px;
+} */

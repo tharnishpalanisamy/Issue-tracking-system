@@ -40,3 +40,93 @@ async function displayIssues() {
 }
 
 displayIssues()
+
+
+//filtering 
+
+let priority = document.getElementById('priority') 
+let issue = document.getElementById('status') 
+
+
+priority.addEventListener('change' , async function(){
+    let priorityChoice = priority.value 
+    let status = issue.value
+    console.log(priorityChoice , status) ;
+
+    let issuesData = await fetch(`${API}?userId=${user.id}`) 
+    let issues = await issuesData.json() 
+
+    let filteredIssues = [] 
+
+    if(priorityChoice === 'All' && status === 'All') {
+        filteredIssues = [...issues]
+    }
+    else if(priorityChoice === 'All' & status != 'All') {
+        issues.forEach(issue=>{
+            if(issue.status == status) {
+            filteredIssues.push(issue)
+            }
+        })
+    }
+    else if (priorityChoice != 'All' && status == 'All') {
+        issues.forEach(issue =>{
+            if(issue.priority == priorityChoice) {
+                filteredIssues.push(issue)
+            }
+        })
+    }
+    else{
+        issues.forEach(issue =>{
+            if(issue.priority == priorityChoice && issue.status == status) {
+                filteredIssues.push(issue)
+            }
+        })
+    }
+
+    createIssues(filteredIssues)
+
+
+        
+})
+
+
+issue.addEventListener('change' , async function(){
+    let priorityChoice = priority.value 
+    let status = issue.value
+    console.log(priorityChoice , status) ;
+
+    let issuesData = await fetch(`${API}?userId=${user.id}`) 
+    let issues = await issuesData.json() 
+
+    let filteredIssues = [] 
+
+    if(priorityChoice === 'All' && status === 'All') {
+        filteredIssues = [...issues]
+    }
+    else if(priorityChoice === 'All' & status != 'All') {
+        issues.forEach(issue=>{
+            if(issue.status == status) {
+            filteredIssues.push(issue)
+            }
+        })
+    }
+    else if (priorityChoice != 'All' && status == 'All') {
+        issues.forEach(issue =>{
+            if(issue.priority == priorityChoice) {
+                filteredIssues.push(issue)
+            }
+        })
+    }
+    else{
+        issues.forEach(issue =>{
+            if(issue.priority == priorityChoice && issue.status == status) {
+                filteredIssues.push(issue)
+            }
+        })
+    }
+
+    createIssues(filteredIssues)
+
+
+        
+})

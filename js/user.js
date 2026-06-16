@@ -3,33 +3,93 @@ const API = 'http://localhost:3000/issues'
 let user = JSON.parse(localStorage.getItem('user'))
 console.log(user.id);
 
+console.log(user.email);
+
+
 //dynamic name 
 
 let name = document.querySelector('.welcome-name') 
 name.innerHTML = `Welcome ${user.name} 👋 ` 
 
 //user profile displaying
-let profile = document.querySelector('.displayProfile') 
-profile.classList.add( 'fw-medium' , 'm-auto' , 'text-primary')
+function updateProfile(){
+    let profile = document.querySelector('.displayProfile') 
+profile.classList.add('w-100', 'p-3', 'rounded-3', 'bg-light', 'border', 'border-light-subtle')
 profile.innerHTML = `
-<div class="d-flex align-items-center gap-3">
+<div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start gap-4">
 
-    <img src="../assets/profileimg.png"
-         alt="Profile"
-         class="rounded-circle border-2 flex-shrink-0"
-         style="width:100px;height:100px;object-fit:cover;">
+    <!-- Profile Image Wrapper -->
+    <div class="position-relative flex-shrink-0">
+        <img src="../assets/profileimg.png"
+             alt="Profile Picture of ${user.name}"
+             class="rounded-circle border border-3 border-white shadow-sm"
+             style="width: 110px; height: 110px; object-fit: cover;">
+    </div>
 
-    <div>
-        <h5 class="mb-2">${user.name} </h5>
-        <p class="mb-1"><strong>Email:</strong> ${user.email}</p>
-        <p class="mb-1"><strong>Department:</strong> ${user.department}</p>
-        <p class="mb-0"><strong>Designation:</strong> ${user.designation}</p>
+    <!-- Profile Details -->
+    <div class="text-center text-sm-start flex-grow-1">
+        <h4 class="fw-bold text-dark mb-1">${user.name}</h4>
+        <span class="badge text-bg-primary bg-gradient px-3 py-1.5 rounded-pill mb-3 fs-7 fw-medium">${user.designation}</span>
+        
+        <div class="d-flex flex-column gap-2 text-secondary fs-6">
+            <div class="d-flex align-items-center justify-content-center justify-content-sm-start gap-2">
+                <i class="bi bi-envelope text-muted"></i>
+                <span>${user.email}</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-center justify-content-sm-start gap-2">
+                <i class="bi bi-building text-muted"></i>
+                <span>${user.department} Department</span>
+            </div>
+        </div>
     </div>
 
 </div>
 `;
+}
+
+updateProfile()
+fetchStatistic()
+//profile edit 
+
+let editName = document.getElementById('editName') 
+let editEmail = document.getElementById('editEmail') 
+
+editName.value = user.name 
+editEmail.value = user.email
+
+let saveChangesBtn = document.getElementById('saveChangesBtn') 
+saveChangesBtn.addEventListener('click' , async function(){
+    if(!editName.value || !editEmail.value) {
+        alert('input error')
+        return 
+    }
+
+    await fetch(`http://localhost:3000/users/${user.id}` , {
+        method:"PATCH" , 
+        headers:{
+            'Content-type' : 'application/json'
+        } , 
+        body:JSON.stringify({
+            name:editName.value , 
+            email : editEmail.value
+        })
+    })
+
+    let updatedUserData = await fetch(`http://localhost:3000/users/${user.id}`) 
+    let updatedUser = await updatedUserData.json() 
+    localStorage.setItem('user' , JSON.stringify(updatedUser))
+    user = updatedUser
+    name.innerHTML = `Welcome ${user.name} 👋`
+    updateProfile()
 
 
+    //hide modal 
+    let modalElement = document.getElementById('editProfileModal') 
+    let modal = bootstrap.Modal.getInstance(modalElement) 
+    modal.hide()
+})
+// let editBtn = document.getElementById('editBtn') 
+// editBtn.addEventListener('click' , function)
 
 //load the dashboard
 
@@ -69,6 +129,8 @@ async function fetchStatistic(){
 }
 
 fetchStatistic()
+
+
 //raise ticket 
 
 let raiseTicket = document.getElementById('raiseTicket') 
@@ -82,7 +144,8 @@ raiseTicket.addEventListener('click' , async function(){
     let priority = document.getElementById('priority') 
 
     if(!title.value || !details.value || !description.value || !priority.value) {
-        alert("Please fill all the necessary fields")
+        alert("Please fill all the necessary fields") 
+        return 
     }
 
     let issue = {
@@ -94,7 +157,8 @@ raiseTicket.addEventListener('click' , async function(){
         createdDate : new Date().toISOString() , 
         status:'Open' , 
         remark : '' , 
-        userId : user.id 
+        userId : user.id , 
+        raisedBy:user.name 
     }
 
 
@@ -114,6 +178,7 @@ raiseTicket.addEventListener('click' , async function(){
     
 
     //dismiss the modal 
+    fetchStatistic()
 
     let modalElement = document.getElementById('riseTicketModal') 
     let modal = bootstrap.Modal.getInstance(modalElement) 

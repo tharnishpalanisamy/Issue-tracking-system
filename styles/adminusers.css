@@ -1,0 +1,49 @@
+
+.blue{
+    color: #0EA5E9 !important;
+}
+.bg-blue{
+    background-color: #0EA5E9 !important;
+}
+
+.bg{
+    background-color: #1e293b !important;
+}
+
+.bg-text{
+    color: #1e293b !important;
+}
+
+.div a {
+    text-decoration: none;
+    font-size: 18px; 
+    color: white;
+}
+
+.active{
+    color: #0EA5E9 !important;
+}
+
+.div a:hover{
+    color: #0EA5E9 !important; 
+    transition: 0.7s;
+}
+
+.body-bg{
+    color: #0F172A  !important;
+}
+
+.Marketing{
+    background-color: #fef3c7  !important;
+}
+
+.Research{
+    background-color: #704c97  !important;
+}
+
+.Admin{
+    background-color: #6689b7 !important;
+}
+.IT{
+    background-color: rgb(107, 187, 161) !important;
+}

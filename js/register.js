@@ -48,8 +48,8 @@ createAccountBtn.addEventListener('click' , async function(){
         name : name.value , 
         password : password.value , 
         department : department.value , 
-        designation : designation.value 
-
+        designation : designation.value , 
+        dateOfJoining : new Date().toISOString() 
     }
     
     await fetch(API , {
