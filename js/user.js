@@ -1,5 +1,11 @@
 const API = 'http://localhost:3000/issues'
 
+
+//if not logged in 
+if(!localStorage.getItem('user')) {
+    window.location.href = './login.html'
+}
+
 let user = JSON.parse(localStorage.getItem('user'))
 console.log(user.id);
 
@@ -184,3 +190,61 @@ raiseTicket.addEventListener('click' , async function(){
     let modal = bootstrap.Modal.getInstance(modalElement) 
     modal.hide()
 })
+
+
+//resolved count view 
+
+let resolvedView = document.getElementById('resolvedView') 
+resolvedView.addEventListener('click' , function(){
+    localStorage.setItem('status' , 'Closed') 
+    window.location.href = './usertickets.html'
+})
+
+let pendingView = document.getElementById('pendingView') 
+pendingView.addEventListener('click' , function(){
+    localStorage.setItem('status' , 'In Progress') 
+    window.location.href = './usertickets.html'
+})
+
+let openView = document.getElementById('openView') 
+openView.addEventListener('click' , function(){
+    localStorage.setItem('status' , 'Open') 
+    window.location.href = './usertickets.html'
+})
+
+
+//user logout 
+
+let logoutBtn = document.getElementById('logoutBtn') 
+logoutBtn.addEventListener('click' , async function(){
+    document.querySelector('.logout-text').classList.add('d-none') 
+    document.querySelector('.logout-spinner').classList.remove('d-none') 
+    document.getElementById('logoutBtn').disabled = true 
+    Swal.fire({
+    title: "Are you sure?",
+    text: "Do you Want to Logout?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Logout !"
+    }).then(async(result) => { 
+        setTimeout(() => {
+            if (result.isConfirmed) Swal.fire({
+        title: "Logged Out!",
+        text: "You have been Logged Out!",
+        icon: "success"
+    })
+        }, 800);
+
+    setTimeout(() => {
+        window.location.href = './login.html'
+        document.querySelector('.logout-text').classList.remove('d-none') 
+        document.querySelector('.logout-spinner').classList.add('d-none') 
+        document.getElementById('logoutBtn').disabled = false  
+        localStorage.removeItem('user')
+    }, 1800);
+        
+    
+    });
+}) 

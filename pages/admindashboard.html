@@ -23,9 +23,11 @@
 
 
             <div class="theme me-5">
-                <button class="btn"><i class="bi bi-sun-fill fs-4 d-none"></i></button>
-                <button class="btn"><i class="bi bi-moon-fill fs-4 text-light"></i></button>
-                <button class="btn btn-danger">Logout</button>
+                <button class="btn btn-danger" id="logoutBtn"><span class="logout-text"
+                    ><i class="fa-solid fa-right-to-bracket text-light"></i>Logout</span>
+                <span
+                    class="spinner-border spinner-border-sm d-none logout-spinner"
+                ></span></button>
             </div>
             
         </div> 
@@ -63,7 +65,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white bg-opacity-10 border-0 p-3">
-                        <a href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
+                        <a  href="adminissues.html" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
                             <span>View Details</span>
                             <i class="bi bi-arrow-right-short fs-5 transition-icon"></i>
                         </a>
@@ -85,7 +87,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white bg-opacity-10 border-0 p-3">
-                        <a href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
+                        <a id="resolvedView" href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
                             <span>View Details</span>
                             <i class="bi bi-arrow-right-short fs-5 transition-icon"></i>
                         </a>
@@ -106,7 +108,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white bg-opacity-10 border-0 p-3">
-                        <a href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
+                        <a id="pendingView" href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
                             <span>View Details</span>
                             <i class="bi bi-arrow-right-short fs-5 transition-icon"></i>
                         </a>
@@ -127,7 +129,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white bg-opacity-10 border-0 p-3">
-                        <a href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
+                        <a id="openView" href="#" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
                             <span>View Details</span>
                             <i class="bi bi-arrow-right-short fs-5 transition-icon"></i>
                         </a>
@@ -138,12 +140,17 @@
 
         </div>
     </div>
+
+    
     <!-- pie chart  -->
     <!-- <div class="chart-card m-auto mt-5">
         <h4 class="blue">Issue Statistics</h4>
         <h5 class="count text-center blue"></h5>
         <canvas id="issueChart"></canvas>
     </div> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/admin.js"></script>
 </body>

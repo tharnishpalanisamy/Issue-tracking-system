@@ -7,7 +7,25 @@ let issues = await issuesData.json()
 return issues
 }
 
-fetchIssues()
+//if user touched specific view 
+
+async function issueFiltering(){
+    let status = localStorage.getItem('status') 
+    let issues = await fetchIssues() 
+    let filetered = [] 
+    document.getElementById('status').value = status 
+    issues.forEach(issue=>{
+        if(issue.status == status) {
+            filetered.push(issue)
+        }
+    })
+    createIssues(filetered) 
+    localStorage.removeItem('status')
+
+}
+
+
+
 
 
 function createIssues(issues) {
@@ -44,7 +62,9 @@ async function displayIssues() {
 }
 
 displayIssues()
-
+if(localStorage.getItem('status')){
+    issueFiltering()
+}
 
 //filtering 
 
