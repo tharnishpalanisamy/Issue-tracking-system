@@ -10,10 +10,13 @@ async function fetchStatistics() {
     let resolvedCount = 0;
     let progressCount = 0;
     let openCount = 0;
+    let highPriority = 0 
 
     issues.forEach(issue => {
         totalCount++;
-
+        if(issue.priority == 'High' && issue.status == 'Open') {
+            highPriority ++
+        }
         if (issue.status === 'Closed') {
             resolvedCount++;
         }
@@ -28,7 +31,17 @@ async function fetchStatistics() {
     document.querySelector('.totalCount').textContent = totalCount;
     document.querySelector('.resolvedCount').textContent = resolvedCount;
     document.querySelector('.progressCount').textContent = progressCount;
-    document.querySelector('.openCount').textContent = openCount;
+    document.querySelector('.openCount').textContent = openCount; 
+    document.querySelector('.resolvedRate').innerText = `${Math.round((resolvedCount / totalCount) * 100  , 2)}%` 
+    document.querySelector('.highPriorityCount').innerHTML = highPriority
+
+    //for user statistics
+    let usersData = await fetch('http://localhost:3000/users') 
+    let users = await usersData.json() 
+
+    document.querySelector('.totalUsers').innerText = users.length 
+
+
     // document.querySelector('.count').innerHTML = `Total Issues : ${totalCount}` 
     // createChart( openCount, resolvedCount, progressCount);
 }
@@ -81,6 +94,25 @@ pendingView.addEventListener('click' , function(){
 
 let openView = document.getElementById('openView') 
 openView.addEventListener('click' , function(){
+    localStorage.setItem('status' , 'Open') 
+    window.location.href = './adminissues.html'
+}) 
+
+let highPriority = document.getElementById('highPriority') 
+highPriority.addEventListener('click' , function(){
+    localStorage.setItem('priority' , 'High') 
+    localStorage.setItem('status' , 'Open')
+    window.location.href = './adminissues.html'
+})
+
+let resolvedRate = document.getElementById('resolvedRate') 
+resolvedRate.addEventListener('click' , function(){
+    localStorage.setItem('status' , 'Closed') 
+    window.location.href = './adminissues.html'
+})
+
+let recentIssues = document.getElementById('recentIssues') 
+recentIssues.addEventListener('click' , function(){
     localStorage.setItem('status' , 'Open') 
     window.location.href = './adminissues.html'
 })
@@ -136,3 +168,44 @@ Swal.fire({
 
 });
 });
+
+
+//creating issues
+function createIssues(issues) {
+    let table  = document.querySelector('.table')
+    let tbody = table.querySelector('tbody');
+    tbody.innerHTML = '';
+
+    issues.forEach((issue, index) => {
+        tbody.innerHTML += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${issue.title}</td>
+            <td class = '${issue.priority}'>${issue.priority}</td>
+            <td>${issue.raisedBy}</td>
+            <td>${new Date(issue.createdDate).toLocaleDateString()}</td>
+            <td class='${issue.status}'>${issue.status}</td>
+        </tr>
+        `;
+    });
+}
+
+async function displayRecentIssues(){
+    let issuesData = await fetch(API) 
+    let issues = await issuesData.json()  
+    let filtered = issues.filter(issue=>issue.status == 'Open') 
+    filtered.reverse() 
+    filteredList = []
+    let count = 0 ; 
+    for(let i = 0 ; i < filtered.length ; i++) {
+        filteredList.push(filtered[i])
+        count ++ 
+        if(count == 5) {
+            break
+        }
+    }
+    createIssues(filteredList)
+}
+
+displayRecentIssues()
+

@@ -7,8 +7,8 @@
     margin-left: 20px;
 } */
 
-.body{
-    background-color: whitesmoke !important;
+body{
+    background-color: #cae0e0 !important;
 }
 .theme{
     cursor: pointer;
@@ -98,4 +98,51 @@
 
 .table-bg{
     background: #E0E0E0 !important;
+}
+
+.hero{
+background: linear-gradient(
+    135deg,
+    #4F46E5,
+    #0EA5E9);
+color:white;
+padding:30px;
+border-radius:16px;
+}
+
+.card-total{
+    background:#4F46E5 !important;
+}
+.card-resolved{
+    background:#10B981 !important;
+}
+.card-open{
+    background:#EF4444 !important;
+}
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15)!important;
+}
+
+.quick-card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+.quick-card:hover{
+    transform:translateY(-6px);
+}
+.quick-card i{
+    font-size:2rem;
+
+    color:#4F46E5;
 }

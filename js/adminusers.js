@@ -47,7 +47,8 @@ department.addEventListener('change' , async function(){
             filteredUsers.push(user)
         }
     })
-    createUsers(filteredUsers)
+    searchName.value = ""
+    createUsers(filteredUsers) 
 }
 })
 
@@ -102,3 +103,38 @@ Swal.fire({
 
 });
 });
+
+//toaster
+function showToast(message, type = 'success') {
+const toast = document.getElementById('loginToast');
+
+toast.className = `toast align-items-center text-bg-${type} border-0`;
+
+toast.querySelector('.toast-body').textContent = message;
+
+const bsToast = new bootstrap.Toast(toast, {
+    delay: 3000
+});
+
+bsToast.show();
+}
+
+
+//search button 
+
+let searchName = document.getElementById('searchName') 
+searchName.addEventListener('input' , async function(){
+    let name = searchName.value
+
+    let usersData = await fetch(API) 
+    let users = await usersData.json() 
+    let filtered = [] 
+    if(department.value == 'All') {
+        filtered = users.filter(user=>user.name.toLowerCase().includes(name))
+    }
+    else{
+    filtered = users.filter(user => user.name.toLowerCase().includes(name) && user.department == department.value )
+    }
+    createUsers(filtered)
+})
+

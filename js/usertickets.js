@@ -101,7 +101,7 @@ priority.addEventListener('change' , async function(){
             }
         })
     }
-
+    searchIssue.value = ""
     createIssues(filteredIssues)
 
 
@@ -143,9 +143,40 @@ issue.addEventListener('change' , async function(){
             }
         })
     }
-
+    searchIssue.value = ""
     createIssues(filteredIssues)
 
 
         
 })
+
+//issue search 
+let searchIssue = document.getElementById('searchIssue');
+searchIssue.addEventListener('input', async function () {
+
+    let issues = await fetchUserIssues();
+
+    let searchText = searchIssue.value.toLowerCase();
+    let selectedStatus = issue.value;
+    let selectedPriority = priority.value;
+
+    let filtered = issues.filter(ticket => {
+
+        let matchesSearch =
+            ticket.title.toLowerCase().includes(searchText);
+
+        let matchesStatus =
+            selectedStatus === 'All' ||
+            ticket.status === selectedStatus;
+
+        let matchesPriority =
+            selectedPriority === 'All' ||
+            ticket.priority === selectedPriority;
+
+        return matchesSearch &&
+               matchesStatus &&
+               matchesPriority;
+    });
+
+    createIssues(filtered);
+});

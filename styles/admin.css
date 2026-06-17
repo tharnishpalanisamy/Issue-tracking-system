@@ -64,3 +64,32 @@
 #issueChart {
     max-height: 200px;
 } */
+
+
+
+.Low{
+    background: #22C55E !important; 
+    color: white;
+}
+
+.Medium{
+    background: #F59E0B !important;
+    color: white;
+}
+
+.High{
+    background: #EF4444 !important;
+    color: white;
+}
+
+.Open{
+    background: #22C55E  !important;
+}
+
+.In{
+    background: #0EA5E9 !important;
+}
+
+.Closed{
+    background: #64748B !important;
+}

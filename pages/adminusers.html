@@ -60,7 +60,9 @@
                     <option value="Marketing">Marketing</option>
                     <option value="Research">Research</option>
                     <option value="Admin">Admin</option>
-                </select>
+                </select> 
+                <input type="text" class="form-control" placeholder="Search by Name" id="searchName"> 
+                <i class="bi bi-search fs-3" id="searchBtn"></i>
             </div>
         </div>
     </div>
@@ -80,7 +82,22 @@
         </table>
         </div>
     </div>
+    <!--toast--> 
+      <div class="toast-container position-fixed bottom-0 end-0 p-4">
 
+    <div id="loginToast" class="toast border-0 shadow">
+        <div class="d-flex">
+            <div class="toast-body fs-5 py-3">
+                Match Found Successfully 🎉
+            </div>
+            <button type="button"
+                    class="btn-close me-2 m-auto"
+                    data-bs-dismiss="toast">
+            </button>
+        </div>
+    </div>
+
+</div>
     <script src="../js/adminusers.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

@@ -252,35 +252,46 @@ openView.addEventListener('click' , function(){
 //user logout 
 
 let logoutBtn = document.getElementById('logoutBtn') 
-logoutBtn.addEventListener('click' , async function(){
-    document.querySelector('.logout-text').classList.add('d-none') 
-    document.querySelector('.logout-spinner').classList.remove('d-none') 
-    document.getElementById('logoutBtn').disabled = true 
-    Swal.fire({
-    title: "Are you sure?",
-    text: "Do you Want to Logout?",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, Logout !"
-    }).then(async(result) => { 
-        setTimeout(() => {
-            if (result.isConfirmed) Swal.fire({
-        title: "Logged Out!",
-        text: "You have been Logged Out!",
-        icon: "success"
-    })
-        }, 800);
+logoutBtn.addEventListener('click', function () {
 
-    setTimeout(() => {
-        window.location.href = './login.html'
-        document.querySelector('.logout-text').classList.remove('d-none') 
-        document.querySelector('.logout-spinner').classList.add('d-none') 
-        document.getElementById('logoutBtn').disabled = false  
-        localStorage.removeItem('user')
-    }, 1800);
-        
-    
+    document.querySelector('.logout-text').classList.add('d-none');
+    document.querySelector('.logout-spinner').classList.remove('d-none');
+    logoutBtn.disabled = true;
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to Logout?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Logout!"
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            Swal.fire({
+                title: "Logged Out!",
+                text: "You have been Logged Out!",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            localStorage.removeItem('user');
+
+            setTimeout(() => {
+                window.location.href = './login.html';
+            }, 1500);
+
+        } else {
+
+            document.querySelector('.logout-text').classList.remove('d-none');
+            document.querySelector('.logout-spinner').classList.add('d-none');
+            logoutBtn.disabled = false;
+
+        }
+
     });
-}) 
+
+});

@@ -66,3 +66,11 @@ i{
 .required{
     color: red;
 }
+
+body{
+    background: whitesmoke !important;
+}
+
+.active{
+    color: #0EA5E9 !important;
+}

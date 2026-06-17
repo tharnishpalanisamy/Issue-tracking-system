@@ -235,7 +235,7 @@
       "issueId": 1781602548188,
       "createdDate": "2026-06-15T09:35:48.188Z",
       "status": "Open",
-      "remark": "bug closed\n",
+      "remark": "bug closed ok\n",
       "userId": "usr_859",
       "raisedBy": "Alex Kumar",
       "id": "gVhe-I_Vyis"
@@ -273,8 +273,8 @@
       "priority": "Low",
       "issueId": 1781602368188,
       "createdDate": "2026-06-14T09:35:48.188Z",
-      "status": "Open",
-      "remark": "",
+      "status": "Closed",
+      "remark": "optimized",
       "userId": "usr_323",
       "raisedBy": "Jane Smith",
       "id": "346kty0ZscE"
@@ -286,8 +286,8 @@
       "priority": "High",
       "issueId": 1781602308188,
       "createdDate": "2026-06-15T09:35:48.188Z",
-      "status": "Closed",
-      "remark": "Resolved in hotfix deployment v2.4.1.",
+      "status": "In Progress",
+      "remark": "Resolved in hotfix deployment v2.4.1. bug reappeared",
       "userId": "usr_674",
       "raisedBy": "Jane Smith",
       "id": "jlEpYtvl38M"
@@ -455,8 +455,8 @@
       "priority": "High",
       "issueId": 1781601528188,
       "createdDate": "2026-06-14T09:35:48.189Z",
-      "status": "Open",
-      "remark": "issue reoccured",
+      "status": "In Progress",
+      "remark": "issue is in progress",
       "userId": "usr_723",
       "raisedBy": "Jane Smith",
       "id": "28T8ASVtpBw"
@@ -560,7 +560,7 @@
       "issueId": 1781673628430,
       "createdDate": "2026-06-17T05:20:28.430Z",
       "status": "Open",
-      "remark": "",
+      "remark": "employee on leave",
       "userId": "6vHoFC4c1jw",
       "raisedBy": "Tharnish",
       "id": "NlNPej17mOw"
@@ -572,7 +572,7 @@
       "priority": "High",
       "issueId": 1781673904794,
       "createdDate": "2026-06-17T05:25:04.794Z",
-      "status": "Open",
+      "status": "In Progress",
       "remark": "",
       "userId": "6vHoFC4c1jw",
       "raisedBy": "Tharnish",
@@ -585,11 +585,37 @@
       "priority": "Medium",
       "issueId": 1781673926849,
       "createdDate": "2026-06-17T05:25:26.849Z",
-      "status": "Open",
+      "status": "In Progress",
       "remark": "",
       "userId": "6vHoFC4c1jw",
       "raisedBy": "Tharnish",
       "id": "GGG4J3n_M2M"
+    },
+    {
+      "title": "is my UI ok ?",
+      "details": "change dashboard",
+      "description": "please reply",
+      "priority": "High",
+      "issueId": 1781694598951,
+      "createdDate": "2026-06-17T11:09:58.951Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "IEmRUUeiwHU"
+    },
+    {
+      "title": "10th",
+      "details": "change dashboard",
+      "description": "hi",
+      "priority": "Low",
+      "issueId": 1781696333208,
+      "createdDate": "2026-06-17T11:38:53.208Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "tqSiBTPNdKs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

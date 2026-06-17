@@ -7,20 +7,55 @@ let issues = await issuesData.json()
 return issues
 }
 
+
+//toast
+//toaster
+function showToast(message, type = 'success') {
+const toast = document.getElementById('loginToast');
+
+toast.className = `toast align-items-center text-bg-${type} border-0`;
+
+toast.querySelector('.toast-body').textContent = message;
+
+const bsToast = new bootstrap.Toast(toast, {
+    delay: 3000
+});
+
+bsToast.show();
+}
+
+
 //if user touched specific view 
 
 async function issueFiltering(){
-    let status = localStorage.getItem('status') 
+    let status = localStorage.getItem('status') || null 
+    let priority = localStorage.getItem('priority') || null 
     let issues = await fetchIssues() 
     let filetered = [] 
-    document.getElementById('status').value = status 
+    document.getElementById('status').value = status || 'All' 
+    document.getElementById('priority').value = priority || 'All'
+
     issues.forEach(issue=>{
-        if(issue.status == status) {
+        if (status && priority) {
+            if(issue.status == status  && issue.priority == priority) {
+                filetered.push(issue)
+            }
+        }
+        else if(status) {
+            if(issue.status == status) {
             filetered.push(issue)
         }
+        }
+        else if(priority) {
+            if(issue.priority == priority) {
+                filetered.push(issue    )
+            }
+        }
+        
     })
     createIssues(filetered) 
     localStorage.removeItem('status')
+    localStorage.removeItem('priority')
 
 }
 
@@ -44,7 +79,7 @@ function createIssues(issues) {
             <td>${issue.raisedBy}</td>
             <td>${new Date(issue.createdDate).toLocaleDateString()}</td>
             <td class='${issue.status}'>${issue.status}</td>
-            <td>${issue.remark}</td>
+            <td>${issue.remark?issue.remark : "-"}</td>
             <td >
                 <button class = "btn editBtn"data-bs-toggle="modal" data-bs-target="#editIssueModal"  > 
                 <i class="bi bi-pencil-square fs-3 editBtn"  data-id = "${issue.id}"></i> </button>
@@ -62,7 +97,7 @@ async function displayIssues() {
 }
 
 displayIssues()
-if(localStorage.getItem('status')){
+if(localStorage.getItem('status') || localStorage.getItem('priority')){
     issueFiltering()
 }
 
@@ -164,7 +199,7 @@ document.addEventListener('click' , async function(event){
 
         await createFilteredIssues()
 
-
+        showToast('Issue Updated' , 'success')
     //closing the Modal 
         let modalElement = document.getElementById('editIssueModal') 
         let modal = bootstrap.Modal.getInstance(modalElement) 
@@ -229,3 +264,52 @@ Swal.fire({
 
 });
 });
+
+
+//search by title 
+
+let searchIssue = document.getElementById('searchIssue');
+
+searchIssue.addEventListener('input', async function () {
+
+    let value = searchIssue.value.toLowerCase().trim();
+
+    let data = await fetch(API);
+    let issues = await data.json();
+
+    let filtered = issues.filter(item =>
+        item.title.toLowerCase().includes(value) &&
+        (issue.value === 'All' || item.status === issue.value) &&
+        (priority.value === 'All' || item.priority === priority.value)
+    );
+
+    createIssues(filtered);
+});
+
+
+//filter
+
+let applyBtn = document.getElementById('applyBtn') 
+applyBtn.addEventListener('click' , async function(){
+    let fromDate = document.getElementById('fromDate') 
+    let toDate = document.getElementById('toDate')
+    
+    if(!fromData.value) {
+        showToast('From Date cannot be empty' , 'warning') 
+        return 
+    }
+ 
+    let issuesData = await fetch(API) 
+    let issues = await issuesData.json()
+
+    let filetered = 
+
+
+
+    //dismissing the modal 
+
+    let modalElement = document.getElementById('filterModal')
+    let modal = bootstrap.Modal.getInstance(modalElement) 
+    modal.hide()
+    fromData.value = ""
+})
