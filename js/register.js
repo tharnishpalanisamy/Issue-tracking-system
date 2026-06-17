@@ -1,66 +1,170 @@
-const API = 'http://localhost:3000/users'  
+const API = 'http://localhost:3000/users';
 
-//creating user 
+// Toast
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('loginToast');
 
-let createAccountBtn = document.getElementById('createAccount') 
+    toast.className = `toast border-0 shadow text-bg-${type}`;
 
-createAccountBtn.addEventListener('click' , async function(){
-    let name = document.getElementById('name') 
-    let email = document.getElementById('email') 
-    let password = document.getElementById('password')
-    let department = document.getElementById('department') 
-    let designation = document.getElementById('designation') 
+    toast.querySelector('.toast-body').textContent = message;
 
+    const bsToast = new bootstrap.Toast(toast, {
+        delay: 3000
+    });
 
-    if(!name.value || !email.value || !department.value || 
-        !designation.value || department.value === 'Select Your Department'
-    ){
-        alert("Enter All The required Fields ") 
-        return 
+    bsToast.show();
+}
+
+// Spinner
+let createAccountBtn = document.getElementById('createAccount');
+
+function showSpinner() {
+    document.querySelector('.register-text').classList.add('d-none');
+    document.querySelector('.register-spinner').classList.remove('d-none');
+    createAccountBtn.disabled = true;
+}
+
+function removeSpinner() {
+    document.querySelector('.register-text').classList.remove('d-none');
+    document.querySelector('.register-spinner').classList.add('d-none');
+    createAccountBtn.disabled = false;
+}
+
+// Inputs
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+
+const nameErr = document.getElementById('nameErr');
+const emailErr = document.getElementById('emailErr');
+const passwordErr = document.getElementById('passwordErr');
+
+// Regex
+const nameRegex = /^[a-zA-Z ]{3,}$/;
+const emailRegex = /^[a-zA-Z0-9+_%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+
+// Dynamic Validation
+nameInput.addEventListener('input', () => {
+    if (!nameInput.value.trim()) {
+        nameErr.innerText = 'Name is required';
+    } else if (!nameRegex.test(nameInput.value)) {
+        nameErr.innerText = 'Minimum 3 letters required';
+    } else {
+        nameErr.innerText = '';
     }
-    let nameErr = document.getElementById('nameErr') 
-    let emailErr = document.getElementById('emailErr') 
-    let passwordErr = document.getElementById('passwordErr')
-    //regex
-    let nameRegex = /^[a-zA-z ]{3,}$/ 
-    let emailRegex = /^[a-zA-Z0-9+_%-]+@[a-zA-Z+_%-]+\.[a-zA-Z]{2,}$/ 
-    let passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/
+});
 
-    nameErr.innerText = "" 
-    passwordErr.innerHTML = "" 
-    email.innerText = ""
-    //regex checking 
-    if(!nameRegex.test(name.value)) {
-        nameErr.innerText = 'Name should only contain letters and spaces' 
-        return 
+emailInput.addEventListener('input', () => {
+    if (!emailInput.value.trim()) {
+        emailErr.innerText = 'Email is required';
+    } else if (!emailRegex.test(emailInput.value)) {
+        emailErr.innerText = 'Enter valid email';
+    } else {
+        emailErr.innerText = '';
     }
-    if(!emailRegex.test(email.value)) {
-        emailErr.innerText = "Email should be in the correct format" 
-        return 
+});
+
+passwordInput.addEventListener('input', () => {
+    if (!passwordInput.value.trim()) {
+        passwordErr.innerText = 'Password is required';
+    } else if (!passwordRegex.test(passwordInput.value)) {
+        passwordErr.innerText =
+            'Need 8 chars, 1 capital, 1 number & 1 symbol';
+    } else {
+        passwordErr.innerText = '';
     }
-    if(!passwordRegex.test(password.value)) {
-        passwordErr.innerHTML = '<br>Password should atleast contain one Capital , number and symbols '
-        return 
+});
+
+// Register
+createAccountBtn.addEventListener('click', async function () {
+
+    let department = document.getElementById('department');
+    let designation = document.getElementById('designation');
+
+    showSpinner();
+
+    // Clear Errors
+    nameErr.innerText = '';
+    emailErr.innerText = '';
+    passwordErr.innerText = '';
+
+    // Empty Validation
+    if (
+        !nameInput.value.trim() ||
+        !emailInput.value.trim() ||
+        !passwordInput.value.trim() ||
+        !department.value ||
+        !designation.value.trim()
+    ) {
+        showToast('Please fill all required fields', 'warning');
+        removeSpinner();
+        return;
     }
 
-    let user = {
-        email : email.value , 
-        name : name.value , 
-        password : password.value , 
-        department : department.value , 
-        designation : designation.value , 
-        dateOfJoining : new Date().toISOString() 
+    // Regex Validation
+    if (!nameRegex.test(nameInput.value)) {
+        nameErr.innerText = 'Minimum 3 letters required';
+        removeSpinner();
+        return;
     }
-    
-    await fetch(API , {
-        method:'POST' , 
-        headers:{
-            'Content-type':'application/json' 
-        } , 
-        body:JSON.stringify(user)
-    })
 
-    console.log('submitted');
+    if (!emailRegex.test(emailInput.value)) {
+        emailErr.innerText = 'Enter valid email';
+        removeSpinner();
+        return;
+    }
 
-    window.location.href = './login.html'
-})
+    if (!passwordRegex.test(passwordInput.value)) {
+        passwordErr.innerHTML =
+            'Need 8 chars, 1 capital, 1 number & 1 symbol';
+        removeSpinner();
+        return;
+    }
+
+    try {
+
+        // Check Duplicate Email
+        let existingData = await fetch(
+            `${API}?email=${emailInput.value}`
+        );
+
+        let existingUser = await existingData.json();
+
+        if (existingUser.length > 0) {
+            showToast('Email already registered', 'danger');
+            removeSpinner();
+            return;
+        }
+
+        const user = {
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            password: passwordInput.value,
+            department: department.value,
+            designation: designation.value.trim(),
+            role: 'user',
+            dateOfJoining: new Date().toISOString()
+        };
+
+        await fetch(API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
+
+        showToast('Account created successfully 🎉', 'success');
+
+        setTimeout(() => {
+            window.location.href = './login.html'; 
+            removeSpinner()
+        }, 1500);
+
+    } catch (error) {
+        console.error(error);
+        showToast('Something went wrong. Try again.', 'danger');
+        removeSpinner();
+    }
+});

@@ -10,28 +10,45 @@
 
 </head>
 <body class="body-bg">
-    <nav class="navbar bg"> 
-        <div class="container-fluid"> 
-            <a class="navbar-brand fs-3 fw-bold blue" >Admin Panel</a> 
+<nav class="navbar navbar-expand-lg bg px-3">
+    <div class="container-fluid">
 
-            <div class="div d-flex justify-content-center gap-5 ">
-                <a href="#" class="active fw-medium">Dashboard</a>
-                <a href="adminusers.html" class="fw-medium">Users</a>
-                <a href="adminissues.html" class="fw-medium">Issues</a>
-                <!-- <a href="">Statistics</a> -->
+        <a class="navbar-brand fs-3 fw-bold blue">
+            Admin Panel
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#adminNavbar"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="adminNavbar">
+            <div class="navbar-nav mx-auto gap-lg-4 text-center">
+                <a href="#" class="nav-link active fw-medium">Dashboard</a>
+                <a href="adminusers.html" class="nav-link text-light fw-medium">Users</a>
+                <a href="adminissues.html" class="nav-link fw-medium text-light">Issues</a>
+            </div>
+            <div class="mt-3 mt-lg-0 d-flex align-items-center justify-content-center">
+                <button class="btn btn-danger" id="logoutBtn">
+                    <span class="logout-text">
+                        <i class="fa-solid fa-right-to-bracket text-light"></i>
+                        Logout
+                    </span>
+
+                    <span
+                        class="spinner-border spinner-border-sm d-none logout-spinner"
+                    ></span>
+                </button>
             </div>
 
+        </div>
 
-            <div class="theme me-5">
-                <button class="btn btn-danger" id="logoutBtn"><span class="logout-text"
-                    ><i class="fa-solid fa-right-to-bracket text-light"></i>Logout</span>
-                <span
-                    class="spinner-border spinner-border-sm d-none logout-spinner"
-                ></span></button>
-            </div>
-            
-        </div> 
-    </nav>
+    </div>
+</nav>
 
     <!-- Welcome
     <div class="container d-flex justify-content-between align-items-center mb-4 mt-5">
@@ -55,7 +72,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow-sm bg-blue text-white">
-                    <div class="card-body d-flex align-items-center justify-content-between p-4">
+                    <div class="card-body d-flex align-items-center justify-content-between pt-5 p-4">
                         <div>
                             <h3 class="display-6 fw-bold mb-1 totalCount">0</h3>
                             <p class="card-text fs-5 fw-medium mb-0 opacity-75">Issues Raised</p>
@@ -64,7 +81,7 @@
                             <i class="bi bi-exclamation-diamond fs-1"></i>
                         </div>
                     </div>
-                    <div class="card-footer bg-white bg-opacity-10 border-0 p-3">
+                    <div class="card-footer bg-white bg-opacity-10 border-0 mt-4 p-3">
                         <a  href="adminissues.html" class="text-white text-decoration-none d-flex align-items-center justify-content-between small fw-semibold stretched-link">
                             <span>View Details</span>
                             <i class="bi bi-arrow-right-short fs-5 transition-icon"></i>
@@ -152,6 +169,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/admin.js"></script>
 </body>
 </html>

@@ -12,14 +12,14 @@
     <!--Nav bar--> 
     <nav class="navbar" style="background-color: #10B981 !important;"> 
         <div class="container-fluid"> 
-            <a class="navbar-brand text-light" >Issue Tracking</a> 
+            <a class="navbar-brand text-light fw-bold mt-2" >IssueTrack</a> 
             <div class="theme me-5">
             </div>
         </div>
         
     </nav>
 
-    <div class="container bg-body-tertiary w-50 mt-5">
+    <div class="container bg-body-tertiary mt-5 custom-width">
         <div class="row">
             <h3 class="text-center text-success">Login</h3>
             <div class="col-12 col-lg-6">
@@ -45,7 +45,12 @@
                         <input type="text" class="form-control" id="password" placeholder="********">
                     </div> 
                     <div class="mt-4">
-                        <button type="button" class="btn btn-outline-success w-100 " id="loginBtn">Login </button> 
+                        <button type="button" class="btn btn-outline-success w-100 " id="loginBtn">
+                             <span class="login-text">Login</span>
+                            <span
+                                class="spinner-border spinner-border-sm d-none login-spinner"
+                            ></span>
+                        </button> 
                         
                     </div>
 
@@ -60,6 +65,25 @@
             </div>
         </div>
     </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-4">
+
+    <div id="loginToast" class="toast border-0 shadow">
+        <div class="d-flex">
+            <div class="toast-body fs-5 py-3">
+                Login Successful 🎉
+            </div>
+            <button type="button"
+                    class="btn-close me-2 m-auto"
+                    data-bs-dismiss="toast">
+            </button>
+        </div>
+    </div>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/login.js"></script>
 </body>
 </html>

@@ -6,6 +6,24 @@ if(!localStorage.getItem('user')) {
     window.location.href = './login.html'
 }
 
+//toaster
+//toaster
+function showToast(message, type = 'success') {
+const toast = document.getElementById('loginToast');
+
+toast.className = `toast align-items-center text-bg-${type} border-0`;
+
+toast.querySelector('.toast-body').textContent = message;
+
+const bsToast = new bootstrap.Toast(toast, {
+    delay: 3000
+});
+
+bsToast.show();
+}
+
+
+
 let user = JSON.parse(localStorage.getItem('user'))
 console.log(user.id);
 
@@ -138,11 +156,19 @@ fetchStatistic()
 
 
 //raise ticket 
-
+function removeSpinner(){
+    document.querySelector('.riseTicketModal-text').classList.remove('d-none') 
+    document.querySelector('.riseTicketModal-spinner').classList.add('d-none') 
+    raiseTicket.disabled = false
+}
 let raiseTicket = document.getElementById('raiseTicket') 
 
 raiseTicket.addEventListener('click' , async function(){
-    console.log('hi');
+    
+    //spinner
+    document.querySelector('.riseTicketModal-text').classList.add('d-none') 
+    document.querySelector('.riseTicketModal-spinner').classList.remove('d-none') 
+    raiseTicket.disabled = true 
     
     let title = document.getElementById('title') 
     let details = document.getElementById('details') 
@@ -150,9 +176,11 @@ raiseTicket.addEventListener('click' , async function(){
     let priority = document.getElementById('priority') 
 
     if(!title.value || !details.value || !description.value || !priority.value) {
-        alert("Please fill all the necessary fields") 
+        showToast('Please fill the Required Fields' , 'warning')
+        removeSpinner() 
         return 
     }
+    showToast('Ticekt Raised Successfully' , 'success') 
 
     let issue = {
         title : title.value , 
@@ -176,19 +204,27 @@ raiseTicket.addEventListener('click' , async function(){
         body:JSON.stringify(issue)
     }) 
 
-    title.value = "" 
-    description.value = "" 
-    details.value = "" 
-    priority.value = ""
-    console.log('issue created');
+    
     
 
     //dismiss the modal 
-    fetchStatistic()
+    setTimeout(() => {
+        
+        fetchStatistic()
 
-    let modalElement = document.getElementById('riseTicketModal') 
-    let modal = bootstrap.Modal.getInstance(modalElement) 
-    modal.hide()
+
+        title.value = "" 
+        description.value = "" 
+        details.value = "" 
+        priority.value = ""
+
+
+        let modalElement = document.getElementById('riseTicketModal') 
+        let modal = bootstrap.Modal.getInstance(modalElement) 
+        modal.hide()
+        removeSpinner()
+    }, 1200);
+    
 })
 
 

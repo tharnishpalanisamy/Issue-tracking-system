@@ -1,3 +1,26 @@
 .required{
     color: red;
 }
+
+.custom-width{
+    width: 80% !important;
+}
+
+@media (min-width: 768px){
+    .custom-width{
+        width: 50% !important;
+    }
+}
+
+.required{
+    color: red;
+}
+
+#error,
+#nameErr,
+#emailErr,
+#passwordErr{
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85rem;
+}

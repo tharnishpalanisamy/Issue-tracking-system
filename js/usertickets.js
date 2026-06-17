@@ -34,14 +34,15 @@ function createIssues(issues) {
     issues.forEach((issue, index) => {
         tbody.innerHTML += `
         <tr>
-            <td>${index + 1}</td>
-            <td>${issue.title}</td>
-            <td>${issue.details}</td>
-            <td>${issue.description}</td>
+            <td  >${index + 1}</td>
+            <td >${issue.title}</td>
+            <td >${issue.details}</td>
+            <td >${issue.description}</td>
             <td class = '${issue.priority}'>${issue.priority}</td>
             <td>${user.name}</td>
-            <td>${new Date(issue.createdDate).toLocaleDateString()}</td>
+            <td >${new Date(issue.createdDate).toLocaleDateString()}</td>
             <td class='${issue.status}'>${issue.status}</td>
+            <td >${issue.remark ? issue.remark : "-"}</td>
         </tr>
         `;
     });

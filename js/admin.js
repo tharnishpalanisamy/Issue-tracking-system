@@ -87,40 +87,52 @@ openView.addEventListener('click' , function(){
 
 
 //logout 
+function removeSpinner(){
+    document.querySelector('.logout-text').classList.remove('d-none');
+    document.querySelector('.logout-spinner').classList.add('d-none');
+    logoutBtn.disabled = false;
+}
+let logoutBtn = document.getElementById('logoutBtn');
 
-let logoutBtn = document.getElementById('logoutBtn') 
+logoutBtn.addEventListener('click', function () {
 
-logoutBtn.addEventListener('click' , async function(){
+document.querySelector('.logout-text').classList.add('d-none');
+document.querySelector('.logout-spinner').classList.remove('d-none');
+logoutBtn.disabled = true;
 
-    document.querySelector('.logout-text').classList.add('d-none') 
-    document.querySelector('.logout-spinner').classList.remove('d-none') 
-    document.getElementById('logoutBtn').disabled = true 
-
-    Swal.fire({
+Swal.fire({
     title: "Are you sure?",
-    text: "Do you Want to Logout?",
+    text: "Do you want to Logout?",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, Logout !"
-    }).then(async(result) => { 
+    confirmButtonText: "Yes, Logout!"
+}).then((result) => {
+
+    if (result.isConfirmed) {
+
         setTimeout(() => {
-            if (result.isConfirmed) Swal.fire({
-        title: "Logged Out!",
-        text: "You have been Logged Out!",
-        icon: "success"
-    })
+            Swal.fire({
+            title: "Logged Out!",
+            text: "You have been Logged Out!",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false
+        });
         }, 800);
 
-    setTimeout(() => {
-        window.location.href = './login.html'
-        document.querySelector('.logout-text').classList.remove('d-none') 
-        document.querySelector('.logout-spinner').classList.add('d-none') 
-        document.getElementById('logoutBtn').disabled = false  
-        localStorage.removeItem('user')
-    }, 1800);
-        
-    
-    });
-}) 
+        setTimeout(() => {
+            localStorage.removeItem('user');
+            window.location.href = './login.html';
+            removeSpinner()
+        }, 1500);
+
+    } else {
+
+        // Restore button state if user cancels
+        removeSpinner()
+    }
+
+});
+});

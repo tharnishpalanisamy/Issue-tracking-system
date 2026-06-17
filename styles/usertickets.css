@@ -24,3 +24,13 @@
 .Closed{
     background: #64748B !important;
 }
+
+/* @media (max-width: 768px){
+    .hide{
+        display: none !important;
+    }
+}
+
+.hide{
+    display: flex     ;
+} */

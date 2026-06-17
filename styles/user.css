@@ -7,6 +7,9 @@
     margin-left: 20px;
 } */
 
+.body{
+    background-color: whitesmoke !important;
+}
 .theme{
     cursor: pointer;
 }
@@ -78,9 +81,21 @@
 }
 
 .bg{
-    background-color: #1e293b !important;
+    background-color: #7a8ba7 !important;
 }
 
 .bg-text{
     color: #1e293b !important;
+}
+
+/* .feature-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:2rem;
+    height:100%;
+} */
+
+.table-bg{
+    background: #E0E0E0 !important;
 }

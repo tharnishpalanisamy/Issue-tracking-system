@@ -204,6 +204,26 @@
       "designation": "Executive Assistant",
       "dateOfJoining": "2025-03-02T09:00:00Z",
       "id": "RUGRrKi5K1k"
+    },
+    {
+      "name": "tharnish",
+      "email": "Tharnish@gmail.com",
+      "password": "Tharnish@2005",
+      "department": "IT",
+      "designation": "Admin",
+      "role": "user",
+      "dateOfJoining": "2026-06-17T05:05:50.054Z",
+      "id": "BBvEsar8cTA"
+    },
+    {
+      "name": "tharnish",
+      "email": "tharnishpalanisamy@gmail.com",
+      "password": "Tharnish@2005",
+      "department": "Marketing",
+      "designation": "Admin",
+      "role": "user",
+      "dateOfJoining": "2026-06-17T05:09:20.979Z",
+      "id": "ruZKqorquyM"
     }
   ],
   "issues": [
@@ -492,6 +512,84 @@
       "userId": "6vHoFC4c1jw",
       "raisedBy": "tharnish",
       "id": "qk16IILlyXw"
+    },
+    {
+      "title": "3",
+      "details": "change dashboard",
+      "description": "summa",
+      "priority": "Low",
+      "issueId": 1781673510331,
+      "createdDate": "2026-06-17T05:18:30.331Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "qKrq4rV1AVI"
+    },
+    {
+      "title": "2",
+      "details": "change dashboard",
+      "description": "3",
+      "priority": "Medium",
+      "issueId": 1781673519978,
+      "createdDate": "2026-06-17T05:18:39.978Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "zUhsAY97mPI"
+    },
+    {
+      "title": "45",
+      "details": "change dashboard",
+      "description": "3",
+      "priority": "High",
+      "issueId": 1781673596748,
+      "createdDate": "2026-06-17T05:19:56.748Z",
+      "status": "Open",
+      "remark": "delay in assigning employee",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "3IExSHGPSFE"
+    },
+    {
+      "title": "6",
+      "details": "change dashboard",
+      "description": "6",
+      "priority": "Low",
+      "issueId": 1781673628430,
+      "createdDate": "2026-06-17T05:20:28.430Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "NlNPej17mOw"
+    },
+    {
+      "title": "7",
+      "details": "7",
+      "description": "7",
+      "priority": "High",
+      "issueId": 1781673904794,
+      "createdDate": "2026-06-17T05:25:04.794Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "__iJeL00UnI"
+    },
+    {
+      "title": "8",
+      "details": "8",
+      "description": "8",
+      "priority": "Medium",
+      "issueId": 1781673926849,
+      "createdDate": "2026-06-17T05:25:26.849Z",
+      "status": "Open",
+      "remark": "",
+      "userId": "6vHoFC4c1jw",
+      "raisedBy": "Tharnish",
+      "id": "GGG4J3n_M2M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
