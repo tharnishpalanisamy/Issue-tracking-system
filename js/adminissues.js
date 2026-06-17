@@ -288,27 +288,43 @@ searchIssue.addEventListener('input', async function () {
 
 
 //filter
+let applyBtn = document.getElementById('applyBtn');
 
-let applyBtn = document.getElementById('applyBtn') 
-applyBtn.addEventListener('click' , async function(){
-    let fromDate = document.getElementById('fromDate') 
-    let toDate = document.getElementById('toDate')
-    
-    if(!fromData.value) {
-        showToast('From Date cannot be empty' , 'warning') 
-        return 
+applyBtn.addEventListener('click', async function () {
+    let fromDate = document.getElementById('fromDate');
+    let toDate = document.getElementById('toDate');
+
+    if (!fromDate.value) {
+        showToast('From Date cannot be empty', 'warning');
+        return;
     }
- 
-    let issuesData = await fetch(API) 
-    let issues = await issuesData.json()
+
+    let from = new Date(fromDate.value);
+    from.setHours(0, 0, 0, 0);
+
+    let to = toDate.value ? new Date(toDate.value) : new Date();
+    to.setHours(23, 59, 59, 999);
+
+    if (from > to) {
+        showToast('From Date cannot be greater than To Date', 'warning');
+        return;
+    }
+    let status = document.getElementById('status') 
+    let issuesData = await fetch(API);
+    let issues = await issuesData.json();
+
+    let filtered = issues.filter(issue => {
+        let issueDate = new Date(issue.createdDate);
+        return issueDate >= from && issueDate <= to && 
+        (issue.status == status.value|| status.value == 'All')
+        && (issue.priority == priority.value || priority.value == 'All')
+    });
 
 
+    createIssues(filtered);
 
+    let modalElement = document.getElementById('filterModal');
+    let modal = bootstrap.Modal.getInstance(modalElement);
+    modal.hide();
 
-    //dismissing the modal 
-
-    let modalElement = document.getElementById('filterModal')
-    let modal = bootstrap.Modal.getInstance(modalElement) 
-    modal.hide()
-    fromData.value = ""
-})
+});
