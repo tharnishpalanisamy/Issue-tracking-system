@@ -302,7 +302,6 @@ applyBtn.addEventListener('click' , async function(){
     let issuesData = await fetch(API) 
     let issues = await issuesData.json()
 
-    let filetered = 
 
 
 
