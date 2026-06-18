@@ -3,27 +3,32 @@ IssueTrack
     -it supports both Users and Admins where users can raise Issues and Admins can respond to them 
     ![IssueTrack Home](screenshots/home1.png)
     ![IssueTrack Home](screenshots/home2.png)
-
+    
 Features 
-
     -Users 
         -Users can create an account and use those credentials to login into the application 
-        ![alt text](screenshots/register.png)
-        ![alt text](screenshots/login.png)
+        ![alt text](screenshots\register.png)
+        ![alt text](screenshots\login.png)
         
 
         -The user Interface / dashboard is a user friendly interface where they can easily navigate 
+        ![alt text](screenshots\user.png)
         -It supports features like 
             -Raise Ticket 
-                -users can raise an issue using this feature , they can provie informations like issue title , description etc.. 
+                -users can raise an issue using this feature , they can provie informations like issue title , description etc..
+                ![alt text](screenshots\raiseticket.png) 
             -Track issues 
                 -This feature allows users to track the progress of the issues they have raised 
+                ![alt text](screenshots\trackissues.png)
             -Manage Profile 
                 -This feature allows users to View and update their Personal information 
+                ![alt text](screenshots\profile.png)
             -Logout 
                 -This feature is used to logout the user 
+                ![alt text](screenshots\user.png)
             -Dashboard 
                 -This page has all the Important Informations about Users Issues summarized 
+                ![alt text](screenshots\user.png)
     
     -Admin 
         -Unlike users , Admins cannot directly create accounts and it is done at database level by the admins 
