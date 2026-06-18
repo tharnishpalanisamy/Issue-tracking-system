@@ -253,7 +253,7 @@ Swal.fire({
 
         setTimeout(() => {
             localStorage.removeItem('user');
-            window.location.href = './login.html';
+            window.location.replace('./login.html')
             removeSpinner()
         }, 1500);
 
