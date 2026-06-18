@@ -1,6 +1,5 @@
 const API = 'http://localhost:3000/issues'
 
-
 //if not logged in 
 if(!localStorage.getItem('user')) {
     window.location.href = './login.html'

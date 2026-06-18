@@ -55,7 +55,7 @@ loginBtn.addEventListener('click' , async function (e){
         if(employee.length == 1 && employee[0].role== 'admin') {
             showToast('Login Successful 🎉', 'success'); 
             setTimeout(() => {
-                localStorage.setItem('user' , JSON.stringify(employee[0])) 
+            localStorage.setItem('user' , JSON.stringify(employee[0])) 
             email.value = "" 
             password.value = "" 
             role.value = 'user'

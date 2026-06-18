@@ -2,7 +2,11 @@ const API = 'http://localhost:3000/issues';
 
 
 //statistcs 
+const user = JSON.parse(localStorage.getItem('user'));
 
+if (!user) {
+    window.location.replace('../index.html');
+}
 let statistics = [] 
 
 //dashboard

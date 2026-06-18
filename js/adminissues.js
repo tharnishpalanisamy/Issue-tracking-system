@@ -7,6 +7,11 @@ let issues = await issuesData.json()
 return issues
 }
 
+const user = JSON.parse(localStorage.getItem('user'));
+
+if (!user) {
+    window.location.replace('../index.html');
+}
 
 //toast
 //toaster

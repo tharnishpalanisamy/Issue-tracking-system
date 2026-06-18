@@ -1,5 +1,10 @@
 const API = 'http://localhost:3000/users' 
 
+const user = JSON.parse(localStorage.getItem('user'));
+
+if (!user) {
+    window.location.replace('../index.html');
+}
 //displaying employees 
 
 function createUsers(users) {
