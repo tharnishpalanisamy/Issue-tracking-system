@@ -7,8 +7,8 @@ IssueTrack
 Features 
     -Users 
         -Users can create an account and use those credentials to login into the application 
-        ![alt text](screenshots\register.png)
-        ![alt text](screenshots\login.png)
+        ![alt text](screenshots/register.png)
+        ![alt text](screenshots/login.png)
         
 
         -The user Interface / dashboard is a user friendly interface where they can easily navigate 
