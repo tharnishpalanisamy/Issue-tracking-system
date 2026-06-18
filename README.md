@@ -16,10 +16,12 @@ Features
         -It supports features like 
             -Raise Ticket 
                 -users can raise an issue using this feature , they can provie informations like issue title , description etc..
-                ![alt text](screenshots/raiseticket.png) 
+
+![alt text](screenshots/raiseticket.png) 
+
             -Track issues 
                 -This feature allows users to track the progress of the issues they have raised 
-                ![alt text](screenshots/trackissues.png)
+![alt text](screenshots/trackissues.png)
             -Manage Profile 
                 -This feature allows users to View and update their Personal information 
                 ![alt text](screenshots/profile.png)
