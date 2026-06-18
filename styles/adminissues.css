@@ -2,6 +2,9 @@
 .blue{
     color: #0EA5E9 !important;
 }
+BODY{
+    background: whitesmoke !important;
+}
 .bg-blue{
     background-color: #0EA5E9 !important;
 }

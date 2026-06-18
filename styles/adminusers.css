@@ -5,7 +5,9 @@
 .bg-blue{
     background-color: #0EA5E9 !important;
 }
-
+BODY{
+    background: whitesmoke !important;
+}
 .bg{
     background-color: #1e293b !important;
 }
