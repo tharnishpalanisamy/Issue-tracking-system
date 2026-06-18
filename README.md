@@ -12,23 +12,24 @@ Features
         
 
         -The user Interface / dashboard is a user friendly interface where they can easily navigate 
-        ![alt text](screenshots\user.png)
+        ![alt text](screenshots/user.png)
+        ![alt text](screenshots/user.png)
         -It supports features like 
             -Raise Ticket 
                 -users can raise an issue using this feature , they can provie informations like issue title , description etc..
-                ![alt text](screenshots\raiseticket.png) 
+                ![alt text](screenshots/raiseticket.png) 
             -Track issues 
                 -This feature allows users to track the progress of the issues they have raised 
-                ![alt text](screenshots\trackissues.png)
+                ![alt text](screenshots/trackissues.png)
             -Manage Profile 
                 -This feature allows users to View and update their Personal information 
-                ![alt text](screenshots\profile.png)
+                ![alt text](screenshots/profile.png)
             -Logout 
                 -This feature is used to logout the user 
-                ![alt text](screenshots\user.png)
+                ![alt text](screenshots/menu.png)
             -Dashboard 
                 -This page has all the Important Informations about Users Issues summarized 
-                ![alt text](screenshots\user.png)
+                ![alt text](screenshots/userdashboard.png)
     
     -Admin 
         -Unlike users , Admins cannot directly create accounts and it is done at database level by the admins 
