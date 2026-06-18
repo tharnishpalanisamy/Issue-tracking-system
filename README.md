@@ -13,7 +13,6 @@ Features
 
         -The user Interface / dashboard is a user friendly interface where they can easily navigate 
         ![alt text](screenshots/user.png)
-        ![alt text](screenshots/user.png)
         -It supports features like 
             -Raise Ticket 
                 -users can raise an issue using this feature , they can provie informations like issue title , description etc..
