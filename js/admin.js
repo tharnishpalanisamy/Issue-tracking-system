@@ -1,6 +1,10 @@
 const API = 'http://localhost:3000/issues';
 
 
+//statistcs 
+
+let statistics = [] 
+
 //dashboard
 async function fetchStatistics() {
     let data = await fetch(API);
@@ -10,10 +14,25 @@ async function fetchStatistics() {
     let resolvedCount = 0;
     let progressCount = 0;
     let openCount = 0;
+    let highCount = 0;
+    let mediumCount = 0;
+    let lowCount = 0;
+
+
     let highPriority = 0 
 
     issues.forEach(issue => {
         totalCount++;
+
+        if(issue.priority == 'High'){
+            highCount++
+        }
+        else if(issue.priority == 'Medium') {
+            mediumCount++
+        }
+        else{
+            lowCount ++
+        }
         if(issue.priority == 'High' && issue.status == 'Open') {
             highPriority ++
         }
@@ -34,47 +53,87 @@ async function fetchStatistics() {
     document.querySelector('.openCount').textContent = openCount; 
     document.querySelector('.resolvedRate').innerText = `${Math.round((resolvedCount / totalCount) * 100  , 2)}%` 
     document.querySelector('.highPriorityCount').innerHTML = highPriority
-
     //for user statistics
     let usersData = await fetch('http://localhost:3000/users') 
     let users = await usersData.json() 
 
     document.querySelector('.totalUsers').innerText = users.length 
 
+//         createPriorityChart(
+//         highCount,
+//         mediumCount,
+//         lowCount
+//     );
+//     // document.querySelector('.count').innerHTML = `Total Issues : ${totalCount}` 
 
-    // document.querySelector('.count').innerHTML = `Total Issues : ${totalCount}` 
-    // createChart( openCount, resolvedCount, progressCount);
-}
+//     const centerTextPlugin = {
+//     id: 'centerText',
+//     beforeDraw(chart) {
+//         const { ctx } = chart;
 
-// function createChart( open, resolved, progress) {
-//     new Chart(document.getElementById("issueChart"), {
-//         type: "doughnut",
-//         data: {
-//             labels: ["Open", "Resolved", "In Progress"],
-//             datasets: [{
-//                 data: [ open, resolved, progress],
-//                 backgroundColor: [
-//                     "#ef4444",
-//                     "#3b82f6",
-//                     "#22c55e",
-//                 ],
-//                 borderWidth: 0
-//             }]
-//         },
-//         options: {
-//             cutout: "75%",
-//             responsive: true,
-//             plugins: {
-//                 legend: {
-//                     position: "bottom"
-//                 },
-//                 tooltip: {
-//                 enabled: true
-//             }
+//         const centerX = chart.width / 2;
+//         const centerY = chart.height / 2;
+
+//         ctx.save();
+
+//         ctx.textAlign = 'center';
+//         ctx.textBaseline = 'middle';
+
+//         ctx.font = 'bold 42px Arial';
+//         ctx.fillStyle = '#1E293B';
+//         ctx.fillText(totalCount, centerX, centerY - 10);
+
+//         ctx.font = '14px Arial';
+//         ctx.fillStyle = '#64748B';
+//         ctx.fillText('Total Issues', centerX, centerY + 22);
+
+//         ctx.restore();
+//     }
+// };
+
+// const existingChart = Chart.getChart("issueChart");
+
+// if (existingChart) {
+//     existingChart.destroy();
+// }
+
+// new Chart(document.getElementById('issueChart'), {
+//     type: 'doughnut',
+//     data: {
+//         labels: ['Resolved', 'In Progress', 'Open'],
+//         datasets: [{
+//             data: [
+//                 resolvedCount,
+//                 progressCount,
+//                 openCount
+//             ],
+//             backgroundColor: [
+//                 '#22C55E',
+//                 '#0EA5E9',
+//                 '#F59E0B'
+//             ],
+//             borderWidth: 0
+//         }]
+//     },
+//     options: {
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         cutout: '75%',
+//         plugins: {
+//             legend: {
+//                 position: 'bottom',
+//                 labels: {
+//                     usePointStyle: true,
+//                     padding: 20
+//                 }
 //             }
 //         }
-//     });
-// }
+//     },
+//     plugins: [centerTextPlugin]
+// });
+
+}
+
 
 fetchStatistics ();
 
@@ -209,3 +268,67 @@ async function displayRecentIssues(){
 
 displayRecentIssues()
 
+
+
+//bar chart
+// function createPriorityChart(high, medium, low){
+
+//     new Chart(
+//         document.getElementById('priorityChart'),
+//         {
+//             type:'bar',
+
+//             data:{
+//                 labels:[
+//                     'High Priority',
+//                     'Medium Priority',
+//                     'Low Priority'
+//                 ],
+
+//                 datasets:[{
+//                     data:[
+//                         high,
+//                         medium,
+//                         low
+//                     ],
+
+//                     backgroundColor:[
+//                         '#EF4444',
+//                         '#F59E0B',
+//                         '#10B981'
+//                     ],
+
+//                     borderRadius:12,
+//                     borderSkipped:false
+//                 }]
+//             },
+
+//             options:{
+//                 indexAxis:'y',
+
+//                 responsive:true,
+
+//                 plugins:{
+//                     legend:{
+//                         display:false
+//                     }
+//                 },
+
+//                 scales:{
+//                     x:{
+//                         beginAtZero:true,
+//                         grid:{
+//                             display:false
+//                         }
+//                     },
+
+//                     y:{
+//                         grid:{
+//                             display:false
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     );
+// }

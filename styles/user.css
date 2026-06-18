@@ -122,6 +122,7 @@ border-radius:16px;
 
 .card{
     transition:0.3s;
+    border-radius: 25PX !important;
 }
 
 .card:hover{
@@ -131,7 +132,7 @@ border-radius:16px;
 
 .quick-card{
     background:white;
-    border-radius:20px;
+    border-radius:30px;
     padding:25px;
     text-align:center;
     box-shadow:

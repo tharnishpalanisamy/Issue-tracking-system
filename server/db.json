@@ -224,6 +224,16 @@
       "role": "user",
       "dateOfJoining": "2026-06-17T05:09:20.979Z",
       "id": "ruZKqorquyM"
+    },
+    {
+      "name": "Tharnish",
+      "email": "Tharnish1@gmail.com",
+      "password": "Tharnish@2005",
+      "department": "IT",
+      "designation": "Software Dev",
+      "role": "user",
+      "dateOfJoining": "2026-06-18T04:43:11.768Z",
+      "id": "YQYNh9B97J8"
     }
   ],
   "issues": [
@@ -616,6 +626,19 @@
       "userId": "6vHoFC4c1jw",
       "raisedBy": "Tharnish",
       "id": "tqSiBTPNdKs"
+    },
+    {
+      "title": "new issue",
+      "details": "change dashboard",
+      "description": "THis is not working",
+      "priority": "Low",
+      "issueId": 1781758125646,
+      "createdDate": "2026-06-18T04:48:45.646Z",
+      "status": "In Progress",
+      "remark": "",
+      "userId": "YQYNh9B97J8",
+      "raisedBy": "Tharnish",
+      "id": "OeFle_RMaeU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -69,6 +69,7 @@ function createIssues(issues) {
     tbody.innerHTML = '';
 
     issues.forEach((issue, index) => {
+        let curDate = new Date(issue.createdDate)
         tbody.innerHTML += `
         <tr>
             <td>${index + 1}</td>
@@ -77,7 +78,7 @@ function createIssues(issues) {
             <td>${issue.description}</td>
             <td class = '${issue.priority}'>${issue.priority}</td>
             <td>${issue.raisedBy}</td>
-            <td>${new Date(issue.createdDate).toLocaleDateString()}</td>
+            <td>${curDate.getDate()}/${curDate.getMonth()}/${curDate.getFullYear()}</td>
             <td class='${issue.status}'>${issue.status}</td>
             <td>${issue.remark?issue.remark : "-"}</td>
             <td >
