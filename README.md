@@ -1,12 +1,17 @@
 IssueTrack 
     -Issue track is a web application that supports issue tracking and management in a proffesstional Environment 
     -it supports both Users and Admins where users can raise Issues and Admins can respond to them 
-    screenshots\home2.png
+    ![IssueTrack Home](screenshots/home1.png)
+    ![IssueTrack Home](screenshots/home2.png)
 
 Features 
 
     -Users 
         -Users can create an account and use those credentials to login into the application 
+        ![alt text](screenshots/register.png)
+        ![alt text](screenshots/login.png)
+        
+
         -The user Interface / dashboard is a user friendly interface where they can easily navigate 
         -It supports features like 
             -Raise Ticket 
