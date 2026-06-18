@@ -235,3 +235,46 @@ DECLARE @title VARCHAR(30) = 'Error'
 SELECT * 
 FROM Issues
 WHERE Title LIKE '%' + @title + '%' 
+
+
+
+--view to see issues of specific user
+CREATE VIEW vw_UserIssues AS
+SELECT
+    i.IssueId,
+    i.Title,
+    i.Description,
+    i.Priority,
+    i.Status,
+    u.UserId,
+    u.Name
+FROM Issues i
+JOIN Users u
+ON i.UserId = u.UserId;
+
+
+--view to get high priority open issues
+CREATE VIEW vw_OpenIssues AS
+SELECT *
+FROM Issues
+WHERE Status = 'Open' AND Priority = 'High';
+
+
+--view to get statistics
+CREATE VIEW vw_IssueStatistics AS
+SELECT
+    COUNT(*) AS TotalIssues,
+    SUM(CASE WHEN Status = 'Open' THEN 1 ELSE 0 END) AS OpenIssues,
+    SUM(CASE WHEN Status = 'In Progress' THEN 1 ELSE 0 END) AS InProgressIssues,
+    SUM(CASE WHEN Status = 'Closed' THEN 1 ELSE 0 END) AS ClosedIssues
+FROM Issues;
+
+
+-- index on email for optimized login experience 
+CREATE UNIQUE INDEX IX_Users_Email
+ON Users(Email);
+
+
+--query optimization
+CREATE INDEX IX_Issues_UserId_Status
+ON Issues(UserId, Status);
