@@ -288,7 +288,7 @@ searchIssue.addEventListener('input', async function () {
 });
 
 
-//filter
+//date filter
 let applyBtn = document.getElementById('applyBtn');
 
 applyBtn.addEventListener('click', async function () {
