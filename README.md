@@ -39,12 +39,16 @@ Features
             -Admin Dashboard 
                 -the Admin Dashboard has all the Necessary and Important details Summarized . It includes details about Both Issues and Users like total number of users and Isues . it also has statistics like number of pending / resolved issues and also the resolved Rate . 
                 -The dashBoard also has recent issues where admin can view recently raised issues
+![alt text](screenshots/admindashboard1.png)
+![alt text](screenshots/admindashboard2.png)
             -Admin Users 
                 - This feature allows admins to view all the employees in the organisation and it also has filtering and searching options 
+![alt text](screenshots/adminuser.png)
             -Admin Issues 
                 -This is one of the Important features of this application . This feature allows admins to respond to the issues raised by the users . it displays all the details of the issues and also features to respond to the issues . 
                 - The admins can change the status of a issue and also can enter remarks which allows the user to understand the 
                 progress of thier issues clearly 
+![alt text](screenshots/adminissues.png)
             -Logout 
                 -It is used to logout the admin 
 
